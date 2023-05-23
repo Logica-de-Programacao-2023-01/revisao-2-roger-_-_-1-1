@@ -24,7 +24,6 @@ func Destino(caminhos [][2]string) (string, error) {
 		}
 	}
 
-	fmt.Print(contador)
 	resp := ""
 	for chave, valor := range contador {
 		if valor == 1 {
@@ -34,5 +33,4 @@ func Destino(caminhos [][2]string) (string, error) {
 	}
 	return resp, nil
 }
-
 
