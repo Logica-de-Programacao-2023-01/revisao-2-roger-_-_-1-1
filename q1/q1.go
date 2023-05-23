@@ -7,6 +7,12 @@ package q1
 //Sua tarefa é criar uma função chamada "mergeStudentData" que recebe os mapas "studentData1" e "studentData2" como parâmetros e retorna um novo mapa que contém as informações combinadas dos dois conjuntos de dados.
 //
 //O objetivo é combinar as informações de cada aluno, preservando o nome e a idade, e atualizando as matérias e notas de acordo com o mapa mais recente. Lembre-se de que um aluno pode estar matriculado em diferentes matérias em cada metade do semestre.
+type Student struct {
+	Name     string
+	Age      int
+	Subjects map[string]float64
+}
+
 func MergeStudentData(studentData1 map[string]Student, studentData2 map[string]Student) map[string]Student {
 	resultadofinal := make(map[string]Student)
 	for identidade, aluno := range studentData1 {
