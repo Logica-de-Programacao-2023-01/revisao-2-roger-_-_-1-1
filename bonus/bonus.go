@@ -6,7 +6,6 @@ import "errors"
 //vai de cidadeAi para cidadeBi. Retorne a cidade de destino, ou seja, a cidade sem nenhum caminho que saia dela.
 
 func Destino(caminhos [][2]string) (string, error) {
-	ultimo := ""
 	if len(caminhos) == 0 {
 		return "", errors.New("not implemented yet")
 	}
@@ -22,16 +21,11 @@ func Destino(caminhos [][2]string) (string, error) {
 
 		}
 	}
-	resp := ""
 	for chave, valor := range contador {
-		if chave == ultimo {
-			valor--
-		}
 		if valor == 1 {
-			resp = chave
 			return chave, nil
 		}
 	}
-	return resp, nil
+	return "", errors.New("not implemented yet")
 }
 
