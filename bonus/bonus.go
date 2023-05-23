@@ -17,10 +17,12 @@ func Destino(caminhos [][2]string) (string, error) {
 			}
 		}
 	}
+		resp := ""
 	for chave, valor := range contador {
 		if valor == 1 {
+			resp = chave
 			return chave, nil
 		}
 	}
-	return "",nil
+	return resp, nil
 }
