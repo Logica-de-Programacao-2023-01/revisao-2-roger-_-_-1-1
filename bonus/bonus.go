@@ -10,14 +10,22 @@ func Destino(caminhos [][2]string) (string, error) {
 		return "", errors.New("not implemented yet")
 	}
 	contador := make(map[string]int)
-	for i:= 0; i < len(contador); i++{
-		for j:= 0; j < len(contador); j++{
-			if caminhos[0][i] == caminhos[0][j]{
-				contador[caminhos[0][i]] ++
+	if len(caminhos) == 1 {
+		return caminhos[0][1], nil
+
+	}
+	for i := 0; i < len(caminhos); i++ {
+		for j := 1; j < len(caminhos); j++ {
+			if caminhos[0][i] == caminhos[0][j] {
+				for chave := range caminhos {
+					contador[string(chave)]++
+				}
 			}
 		}
 	}
-		resp := ""
+
+	fmt.Print(contador)
+	resp := ""
 	for chave, valor := range contador {
 		if valor == 1 {
 			resp = chave
@@ -26,3 +34,5 @@ func Destino(caminhos [][2]string) (string, error) {
 	}
 	return resp, nil
 }
+
+
