@@ -15,18 +15,15 @@ func Destino(caminhos [][2]string) (string, error) {
 
 	}
 	for i := 0; i < len(caminhos); i++ {
+		contador[string(caminhos[0][i])]++
 		for j := 1; j < len(caminhos); j++ {
-			if caminhos[0][i] == caminhos[0][j] {
-				for chave := range caminhos {
-					contador[string(chave)]++
-				}
-			}
+			contador[string(caminhos[i][j])]++
+			contador[string(caminhos[len(caminhos)-1][len(caminhos)-1])]--
 		}
 	}
-
 	resp := ""
 	for chave, valor := range contador {
-		if valor == 1 {
+		if valor == -1 {
 			resp = chave
 			return chave, nil
 		}
